@@ -1,0 +1,19 @@
+# __APP__ at kazin.dev__BASE__ (template: deploy/install.sh fills __APP__, __BASE__, __PORT__).
+# Imported inside the kazin.dev site block (`import /etc/caddy/sites/kazin.dev.d/*.caddy`).
+redir __BASE__ __BASE__/ permanent
+
+# The API, with the prefix taken off: the Node server's routes are /entry, /signin/action...
+handle_path __BASE__/api/* {
+	reverse_proxy 127.0.0.1:__PORT__
+}
+
+# The built React client; unknown paths are client routes, so they get index.html.
+handle_path __BASE__/* {
+	root * /opt/__APP__/web
+	@immutable path /static/*
+	header @immutable Cache-Control "public, max-age=31536000, immutable"
+	@revalidate path / /index.html
+	header @revalidate Cache-Control "no-cache"
+	try_files {path} /index.html
+	file_server
+}

@@ -1,5 +1,7 @@
 # Custom Web Login System
 
+**Live demo:** https://kazin.dev/projects/custom-web-login-system/
+
 A complete sign-up / sign-in flow written from scratch: no auth library does the work, every step (accounts, sessions, email verification, Google sign-in) is implemented by hand on a small React + Express + MySQL stack.
 
 ## What it does

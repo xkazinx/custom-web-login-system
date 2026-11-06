@@ -117,7 +117,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div style={{ height: '100vh' }}>
         <CssBaseline/>
         <MenuAppBar 

@@ -1,0 +1,14 @@
+{
+    "sessionSecret": "",
+    "host": "0.0.0.0",
+    "port": 8081,
+    "clientDomains": ["http://localhost:3000"],
+    "database": {
+        "host": "localhost",
+        "user": "root",
+        "password": "root",
+        "database": "tuticket_new",
+        "port": 3305,
+        "connectionLimit": 10
+    }
+}

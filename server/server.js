@@ -6,18 +6,20 @@ import { common } from '../common/common.mjs';
 import { v4 as uuid } from 'uuid';
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import { settings } from './settings.js';
 
-const app = express(); // #todo move to .env config file and modify accordingly
+const app = express();
+// Behind Caddy (kazin.dev) the request's scheme comes in X-Forwarded-Proto
+app.set('trust proxy', 1);
 
 app.use(session({
-    // #todo move to .env config file and modify accordingly
-    secret: 'testing', // Replace with your own secret key
+    secret: settings.sessionSecret,
     resave: true,
     saveUninitialized: true,
-    httpOnly: true
+    cookie: { httpOnly: true, secure: 'auto', sameSite: 'lax' }
 }));
 
-const whitelist = ['http://localhost:3000'];
+const whitelist = settings.clientDomains || common.kClientDomains;
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
@@ -32,15 +34,8 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-// #todo move to .env config file and modify accordingly
-const db_auth = 
-{
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'tuticket_new',
-    port: 3305
-};
+// The database login comes from the settings file (server/settings.js)
+const { connectionLimit, ...db_auth } = settings.database;
 
 async function dbConnection()
 {
@@ -410,7 +405,7 @@ app.post('/logout', async (req, res) => {
     return res.json({});
 });
 
-app.listen(8081, () => {
+app.listen(settings.port || 8081, settings.host || '0.0.0.0', () => {
     console.log("Server started");
 });
 

@@ -1,0 +1,8 @@
+{
+    "app": "custom-web-login-system",
+    "base": "/projects/custom-web-login-system",
+    "port": 3302,
+    "database": "custom_web_login",
+    "origin": "https://kazin.dev",
+    "host": "kazin-music"
+}

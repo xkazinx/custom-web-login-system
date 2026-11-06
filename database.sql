@@ -27,6 +27,16 @@ CREATE TABLE IF NOT EXISTS `guests` (
 
 -- Data exporting was unselected.
 
+-- Dumping structure for table tuticket_new.sessions (one row per signed-in session: the user's id and the session's uuid)
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `id` int unsigned NOT NULL,
+  `sessionId` varchar(36) COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`sessionId`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Data exporting was unselected.
+
 -- Dumping structure for table tuticket_new.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
