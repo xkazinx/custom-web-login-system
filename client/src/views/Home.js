@@ -108,8 +108,8 @@ function Home({ countryIdx })
                     :
                     sections.map(section => (
                         <Box key={section.name} sx={{ pt: 4 }}>
-                            <Typography variant="h5" component="h2" sx={{ mb: 2, fontWeight: 600 }}>{section.name}</Typography>
-                            <Grid container spacing={3}>
+                            <Typography variant="h5" component="h2" sx={{ mb: 2, fontWeight: 600, textAlign: 'center' }}>{section.name}</Typography>
+                            <Grid container spacing={3} justifyContent="center">
                                 {section.events.map(event => (
                                     <Grid item key={event.title} xs={12} sm={6} md={4} lg={3}>
                                         <EventCard event={event} />

@@ -226,15 +226,6 @@ function Navbar({ userData, setUserData, userLoaded, onCountryLoaded, countryLoa
        top: '0px' }}>
       <Container maxWidth="xl">
         <Toolbar sx={{  paddingLeft: '5vw', paddingRight: '5vw' }} disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{ mr: 2, fontWeight: 700, letterSpacing: '.05rem', color: 'inherit', textDecoration: 'none' }}
-          >
-            Login System
-          </Typography>
           { 
           /*
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
