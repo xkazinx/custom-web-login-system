@@ -2,7 +2,7 @@
 
 **Live demo:** https://kazin.dev/projects/custom-web-login-system/
 
-*Made without AI until the first Claude commit (827f62e, 2025-11-05); the deploy, the demo content and this README came after.*
+*Made without AI until the first Claude commit (827f62e, 2026-11-05); the deploy, the demo content and this README came after.*
 
 A complete sign-up / sign-in flow written from scratch: no auth library does the work, every step (accounts, sessions, email verification, Google sign-in) is implemented by hand on a small React + Express + MySQL stack.
 
