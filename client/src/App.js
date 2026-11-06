@@ -127,7 +127,7 @@ function App() {
           countryLoaded={countryLoaded} countryIdx={countryIdx} 
           />
         <Routes>
-            <Route path='/' element={<Home eventsData={eventsData} eventsLoaded={eventsLoaded}/> } />
+            <Route path='/' element={<Home countryIdx={countryIdx} /> } />
             <Route path='/signin' element={<SignIn setUserData={setUserData} setUserLoaded={setUserLoaded} /> } />
             <Route path='/register' element={<Register setUserData={setUserData} /> } />
             <Route path='/verify_email' element={<VerifyEmail userData={userData} /> } />

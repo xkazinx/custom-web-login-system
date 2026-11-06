@@ -2,6 +2,8 @@
 
 **Live demo:** https://kazin.dev/projects/custom-web-login-system/
 
+*Made without AI until the first Claude commit (827f62e, 2025-11-05); the deploy, the demo content and this README came after.*
+
 A complete sign-up / sign-in flow written from scratch: no auth library does the work, every step (accounts, sessions, email verification, Google sign-in) is implemented by hand on a small React + Express + MySQL stack.
 
 ## What it does
@@ -32,18 +34,3 @@ cd server && npm i && npm start
 
 Import `database.sql` into MySQL first and put your Google OAuth client id in `client/src/google-credentials.js` and `server/google-credentials.js`.
 
----
-
-## Original README (2024-05-19, c244590)
-
-- First console:
-
-cd client<br>
-npm i<br>
-npm start
-
-- Second console:
-  
-cd server<br>
-npm i<br>
-npm start<br>

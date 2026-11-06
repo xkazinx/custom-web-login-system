@@ -42,16 +42,13 @@ function VerifyEmail({ userData }) {
             Verificar email
           </Typography>
           <Box sx={{ textAlign: 'center' }}>
-            Hemos enviado un correo a { userData == null ? '[mail]' : userData.email },<br/>
-            haz click en el enlace enviado para continuar
+            En un sitio real, { userData == null ? 'tu correo' : userData.email } recibiría un enlace de verificación.<br/>
+            Este proyecto es una demo y no envía correos: el botón verifica la cuenta al instante.
           </Box>
-          <Box pt={2}>
-            {
-              process.env.NODE_ENV == 'development' ?
-              (<Button
-                variant="contained" color="primary" onClick={onClickVerifyEmail}>Emular verificación de email</Button>) :
-              (<span></span>)
-            }
+          <Box pt={3}>
+            <Button variant="contained" color="primary" onClick={onClickVerifyEmail} disabled={!userData}>
+              Verificar ahora
+            </Button>
           </Box>
         </Box>
       </Container>

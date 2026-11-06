@@ -11,7 +11,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Logo from '../assets/logo.png';
 import FlagAR  from '../assets/flag-ar.png';
 import FlagCL  from '../assets/flag-cl-2.png';
 import { Link } from 'react-router-dom';
@@ -110,7 +109,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export function SearchBar() {
+export function SearchBar({ value, onChange }: { value?: string, onChange?: (text: string) => void }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Search>
@@ -120,6 +119,8 @@ export function SearchBar() {
         <StyledInputBase
           placeholder="Buscar por lugar, evento, organizador..."
           inputProps={{ 'aria-label': 'search' }}
+          value={value ?? ''}
+          onChange={(ev) => onChange && onChange(ev.target.value)}
         />
       </Search>
     </Box>
@@ -225,27 +226,15 @@ function Navbar({ userData, setUserData, userLoaded, onCountryLoaded, countryLoa
        top: '0px' }}>
       <Container maxWidth="xl">
         <Toolbar sx={{  paddingLeft: '5vw', paddingRight: '5vw' }} disableGutters>
-          <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{ mr: 2, ...(sideBarOpened && { display: 'none' }) }}
-            >
-              <MenuIcon />
-          </IconButton>
-
-          <Link to="/">
-            <Box
-              component="img"
-              sx={{
-                maxWidth: 75,
-                maxHeight: 75,
-              }}
-              alt="TuTicket logo"
-              src={Logo}
-            />
-          </Link>
+          <Typography
+            variant="h6"
+            noWrap
+            component={Link}
+            to="/"
+            sx={{ mr: 2, fontWeight: 700, letterSpacing: '.05rem', color: 'inherit', textDecoration: 'none' }}
+          >
+            Login System
+          </Typography>
           { 
           /*
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -427,51 +416,6 @@ function Navbar({ userData, setUserData, userLoaded, onCountryLoaded, countryLoa
             }
           </Box>
         </Toolbar>
-        <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={sideBarOpened}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {<ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {['Dashboard', 'Item 2', 'Item 3'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['Profile', 'Item 2', 'Item 3'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
       </Container>
     </AppBar>
   );
