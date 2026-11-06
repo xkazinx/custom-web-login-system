@@ -6,6 +6,8 @@ Made in 2024 by [Elias Lujan (Kazin)](https://kazin.dev) without AI until the fi
 
 [![Home](docs/screenshots/home-1440.jpg)](https://kazin.dev/projects/custom-web-login-system/)
 
+[![Sign in](docs/screenshots/signin-1440.jpg)](https://kazin.dev/projects/custom-web-login-system/signin)
+
 ## What a visitor meets
 
 - **Register and sign in** with email and password; server-side validation of the fields and of the email format.
