@@ -15,15 +15,6 @@ Made in 2024 by [Elias Lujan (Kazin)](https://kazin.dev) without AI until the fi
 - **Dashboard and profile** pages behind the login; user roles prepared in the schema.
 - **The demo site around it**: events in eight categories for Chile and Argentina, a search box, category tabs and a country switch in the navbar that filter them.
 
-## Screenshots
-
-Taken from the live site on 2026-11-06.
-
-| | |
-|---|---|
-| [![Sign in](docs/screenshots/signin-1440.jpg)](docs/screenshots/signin-1440.jpg) Sign in | [![Register](docs/screenshots/register-1440.jpg)](docs/screenshots/register-1440.jpg) Register |
-| [![Home](docs/screenshots/home-1440.jpg)](docs/screenshots/home-1440.jpg) Events by category | <img src="docs/screenshots/home-mobile.jpg" alt="Home on a phone" width="195"> On a phone |
-
 ## What runs behind it
 
 | Layer | Technologies |
